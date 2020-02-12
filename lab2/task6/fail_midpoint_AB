@@ -1,0 +1,21 @@
+
+Midpoint A:
+
+
+I used x = 2147483647 [0b01111 1111 1111 1111 1111 1111 1111 1111] signed and y = -3 [0b111] signed
+to fail midpoint_A test. When the math is actually done you get this:
+2147483647 + ((-3-2147483647) / 2) --> 2147483647 + ((-2147483650) / 2)).
+In binary this is [0b01111 1111 1111 1111 1111 1111 1111 1111] + (([0b111] - [0b01111 1111 1111 1111 1111 1111 1111 1111]) / [0b10])
+---> [0b01111 1111 1111 1111 1111 1111 1111 1111] + ([Ob11000 0000 0000 0000 0000 0000 0000 0010] / [0b10]).
+It overflowed in the subtraction because it is has exceeded the number 2^31-1 which is the max 32 bit int. The
+answer in the command prompt is negative because when the two signed numbers are added (it becomes more negative ), 1+1 = 0 and the 1 gets carried
+over. The 1 gets carried over all the way to the front of the int which is read as a signed negative integer.
+The correct answer should be [0b 00011 1111 1111 1111 1111 1111 1111 1110] but it reads [0b1 0100 0000 0000 0000 0000 0000 0000 0010].
+
+
+Midpoint B:
+Midpoint_B will always evaluate to a positive int because of the shift. When the value is shifted to the right one bit,
+a 0 is entered on the left. With signed numbers, 0 means positive. -9 in binary (after taking twos compliment) is
+[0b 1111 1111 1111 1111 1111 1111 1111 0111] plus unsigned 5 [0b 0000 0000 0000 0000 0000 0000 0000 0101] comes out to
+[0b 1111 1111 1111 1111 1111 1111 1111 1100]. Then shifted right one -> [0b 0111 1111 1111 1111 1111 1111 1111 1110] which
+in turn is positive regardless of the circumstances because of the left most bit.
