@@ -1,27 +1,68 @@
-#include <stdio.h>
+#include <stdio.h> //I worked with CJ on this task
 #include <stdlib.h>
 
-// Note, the bits are counted from right to left. 
+// Note, the bits are counted from right to left.
 // Return the bit states of x within range of [start, end], in which both are inclusive.
 // Assume 0 <= start & end <= 31
 void get_bits(unsigned x,
                  unsigned start,
                  unsigned end,
 		 unsigned * a) {
-    
-   return;
+
+   //return NULL;
     // YOUR CODE HERE
     // Returning NULL is a placeholder
     // get_bits receives an array a from caller and set a[i] = 1 when (i+start)-th bit
     // of x is 1, otherwise set a[i] = 0;
-}
 
+    int bit;
+
+    for(int i = 0; i < (end - start) + 1; i++) //We both came up with each line here
+    {
+                                              //We constantly would try knew things and bounce off eachothers thoughts
+                                              //until we came up with this final product
+
+      bit = (x >> start+i) & 1;
+
+      a[i] = bit;
+
+      /*if(x<<start+i == 1)
+      {
+        a[i] = 1;
+      }
+
+      else
+      {
+        a[i] = 0;
+        x<<start+i;
+      }*/
+
+    }
+
+}
 // Set the bits of x within range of [start, end], in which both are inclusive
 // Assume 0 <= start & end <= 31
 void set_bits(unsigned * x,
              unsigned start,
              unsigned end,
              unsigned *v) {
+
+               int i;
+               for(i = start; i <= end; i++)
+               {
+                 int y = 0b1 << i;
+
+                 if(v[i - start] == 0)
+                 {
+                   *x = *x & ~y;
+                 }
+
+                 else
+                 {
+                   *x = *x | y;
+                 }
+               }
+               //will shift here
     // YOUR CODE HERE
     // No return value
     // v points to an array of at least (end-start+1) unsigned integers.
@@ -34,6 +75,16 @@ void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
     // YOUR CODE HERE
+
+    for(int i = start; i <= end; i++)
+    {
+
+    int y = 0b1 << i;
+    *x = *x ^ y;
+
+    }
+
+
 }
 
 
