@@ -1,0 +1,24 @@
+Midpoint A broke with inputs 2147483647 and -2 
+ 0b111 1111 1111 1111 1111 1111 1111 1111 = 2147486647
+-0b                                   101 = -2 
+-------------------------------------------------------
+ 1 000 0000 0000 0000 0000 0000 0000 0101 which is -2,147,486,653 (negative because of the sign in front)
+ and if you divide it by two, it ends up being -1,073,741,826.5‬ which is not the correct answer because it overflowed
+ past the allowed bits. (Subtracting a negative number makes it add so it overflows through that).
+ 
+ Hex : 0x7FFF FFFF - -0x000 0002 = 0x8 0000 0001 = Overflow and when you divide it by two and add -2, it's already overflowed
+ so it'll just add on to the overflowed value.
+ 
+Midpoint B broke with inputs -2 and -1
+Since it's unsigned, they take the 2's complement
+000 0000 0000 0000 0000 0000 0000 0010 = 2
+111 1111 1111 1111 1111 1111 1111 1110 = -2 (+1 for the complement)
+
+000 0000 0000 0000 0000 0000 0000 0001 = 1
+111 1111 1111 1111 1111 1111 1111 1111 = -1
+
+If you add the two numbers you eventually get
+1111 1111 1111 1111 1111 1111 1111 1101 which ends up overflowing the code and when you shift, it ends up being 
+0111 1111 1111 1111 1111 1111 1111 1110 = which equals 2,147483645
+
+Hex = 7FFFFFFD + 7FFFFFFF = 7FFFFFFD with a shift
