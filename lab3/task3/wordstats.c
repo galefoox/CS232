@@ -9,7 +9,17 @@ int main () {
   int len, i;
   char buf[MAX_BUF];
 
-  do {
+
+  fgets(buf, MAX_BUF, stdin);
+  len = strlen(buf) - 1;
+  i = 0;
+  do
+  {
+    if (buf[0] >= 'A' && buf[0] <= 'Z')
+    letter_frequency[i] += 1;
+
+    len--;
+    i++;
   } while (len > 1);
 
   printf("Distribution of letters in corpus:\n");
