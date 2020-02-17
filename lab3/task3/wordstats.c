@@ -2,6 +2,19 @@
 #include <string.h>
 #define MAX_BUF 1024
 
+
+/*void deleteSpaces (* char buf[MAX_BUF])
+{
+  for(int i = 0; buf[MAX_BUF]; i++)
+  {
+    if(buf[i] == ' ')
+    {
+      buf[i] =
+    }
+  }
+}*/
+
+
 int main () {
 
   /* Zero out the array */
@@ -26,7 +39,7 @@ int main () {
       //letter = buf[i];
       count = buf[i] - 'A';
       letter_frequency[count] += 1;
-      i++;
+      //i++;
 
 
     }
@@ -36,19 +49,21 @@ int main () {
        //letter = buf[i];
        count = buf[i] - 'a';
        letter_frequency[count] += 1;
-       i++;
+       //i++;
+
+
 
      }
     //letter_frequency[i] = count;
 
-  /*  if(buf == NULL)
+    if(buf == NULL)
     {
       break;
     }
-    */
+
 
     len--;
-    //i++;
+    i++;
   } while (len > 1);
 
   printf("Distribution of letters in corpus:\n");
