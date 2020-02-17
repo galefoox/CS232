@@ -11,11 +11,11 @@ int main () {
 
 
   fgets(buf, MAX_BUF, stdin);
-  len = strlen(buf) - 1;
+  len = strlen(buf);
   i = 0;
   do
   {
-    if (buf[0] >= 'A' && buf[0] <= 'Z')
+    if ((buf[i] >= 'A' || buf[i] >= 'a') && (buf[i] <= 'Z' || buf[i] <= 'z'))
     letter_frequency[i] += 1;
 
     len--;
