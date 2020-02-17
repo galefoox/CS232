@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
  //example:
-   char str[100];
+   char str[10090];
    int ch, n = 0;
  
 
