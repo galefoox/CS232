@@ -6,20 +6,49 @@ int main () {
 
   /* Zero out the array */
   int letter_frequency[26] = {0};
-  int len, i;
+  int len, i, count;
   char buf[MAX_BUF];
+//  char letter;
 
 
   fgets(buf, MAX_BUF, stdin);
   len = strlen(buf);
   i = 0;
+
+  //count = 0;
+
   do
   {
-    if ((buf[i] >= 'A' || buf[i] >= 'a') && (buf[i] <= 'Z' || buf[i] <= 'z'))
-    letter_frequency[i] += 1;
+
+  //  letter_frequency[i] = letter - 'a' + 'A';
+   if  ((buf[i] >= 'A') && (buf[i] <= 'Z')) //^ ((buf[i] >= 'a') && (buf[i] <= 'z')) )
+    {
+      //letter = buf[i];
+      count = buf[i] - 'A';
+      letter_frequency[count] += 1;
+      i++;
+
+
+    }
+
+    if  ((buf[i] >= 'a') && (buf[i] <= 'z')) //^ ((buf[i] >= 'a') && (buf[i] <= 'z')) )
+     {
+       //letter = buf[i];
+       count = buf[i] - 'a';
+       letter_frequency[count] += 1;
+       i++;
+
+     }
+    //letter_frequency[i] = count;
+
+  /*  if(buf == NULL)
+    {
+      break;
+    }
+    */
 
     len--;
-    i++;
+    //i++;
   } while (len > 1);
 
   printf("Distribution of letters in corpus:\n");
