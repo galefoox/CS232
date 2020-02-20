@@ -2,10 +2,10 @@
 
 int main(int argc, char *argv[]) {
  //example:
-   char str[10];
+   char str[10090];
    int a, n = 0;
 
-   while ((a = getchar()) != EOF && n < 10) {
+   while ((a = getchar()) != EOF && n < 10090 ) {
 
      if(a <= 'z' && a >= 'a') //checks ascii value
      {
