@@ -43,13 +43,11 @@ int main()
 
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order*/
-  int i = 0;
-  int j = 0;
-  int l = 1;
+  int i;
+  int j;
+  int l = 0;
 
-
-
-  while(l)
+  while(l < NUM)
   {
     for (i = 0; i < NUM; i++)
     {
@@ -60,28 +58,34 @@ int main()
            temp[0][j] = Strings[i][j]; 
            Strings[i][j] = Strings[i+1][j];
            Strings[i+1][j] = temp[0][j];
+        
+        
         }
       }
       if (Strings[i][0] == Strings[i+1][0])
       {
         for (j = 1; j < NUM; j++)
         {
+          if (Strings[i][j] == Strings[i+1][j])
+          {
+            continue;
+          }
+
+          else if (Strings[i][j] > Strings[i+1][j])
+          {
            temp[0][j] = Strings[i][j]; 
            Strings[i][j] = Strings[i+1][j];
            Strings[i+1][j] = temp[0][j];
+          }
         }
       }
     }
-    if (Strings[0][0] <= Strings[0+1][0])
-    {
-      break;
-    }
-
-  
+    l++;
   }
+  
+  
 
-
-    //printf("%s", temp[i]);
+ //printf("%s", temp[i]);
   
 
     //heheh
@@ -107,9 +111,10 @@ int main()
      etc. for printing each string.
   */
 
-  for(int i = 0; i < NUM ; i++)
+  for(int i = 0; i < LEN ; i++)
 	{
-		printf("%s" , Strings[i]);
+    printf("%s" , Strings[i]);
 	}
 
 }
+//FIX SEGMENTATION FAULT -> IF WE ENTER A STRING LARGER THAN NUM VALUE, IT GIVES US THAT, FIX IT
