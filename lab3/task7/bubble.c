@@ -55,7 +55,7 @@ int main()
 
         }
 
-    } //he
+    } //heheh
 
      /*Your code must meet the following requirements:
         (i) The comparison of two strings must be done by checking them one
