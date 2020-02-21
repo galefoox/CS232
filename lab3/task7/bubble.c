@@ -2,26 +2,29 @@
 
 #include <stdio.h>  /* Need for standard I/O functions */
 #include <string.h> /* Need for strlen() */
+#include <stdlib.h>
 
 
-#define NUM 30   /* number of strings */
+#define NUM 3   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
 int main()
 {
   char Strings[NUM][LEN];
-
-
-  printf("Please enter %d strings, one per line:\n", NUM);
-
-  //Write a for loop here to read NUM strings.
-
-    for(int i = 0; i < NUM ; i++)
+  char temp[NUM][LEN];
+      
+  for(int i = 0; i < NUM ; i++)
 	{
 
     fgets(Strings[i], LEN - 2, stdin);
 
   }
+
+  printf("Please enter %d strings, one per line:\n", NUM);
+
+  //Write a for loop here to read NUM strings.
+
+
 
 /*	Use fgets(), with LEN as an argument to ensure that an input line that is too
      long does not exceed the bounds imposed by the string's length.  Note that the
@@ -40,22 +43,48 @@ int main()
 
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order*/
-  int i;
-  int length;
-  char temp[LEN];
+  int i = 0;
+  int j = 0;
+  int l = 1;
 
-    for(i = 0; i < NUM; i++)
+
+
+  while(l)
+  {
+    for (i = 0; i < NUM; i++)
     {
-      length = (strlen(Strings[i]));
-      int j;
-
-        for(j = 0; j < length - i; j++)
+      if (Strings[i][0] > Strings[i+1][0])
+      {
+        for (j = 0; j < NUM; j++)
         {
-            temp = Strings[i][j];
-
+           temp[0][j] = Strings[i][j]; 
+           Strings[i][j] = Strings[i+1][j];
+           Strings[i+1][j] = temp[0][j];
         }
+      }
+      if (Strings[i][0] == Strings[i+1][0])
+      {
+        for (j = 1; j < NUM; j++)
+        {
+           temp[0][j] = Strings[i][j]; 
+           Strings[i][j] = Strings[i+1][j];
+           Strings[i+1][j] = temp[0][j];
+        }
+      }
+    }
+    if (Strings[0][0] <= Strings[0+1][0])
+    {
+      break;
+    }
 
-    } //heheh
+  
+  }
+
+
+    //printf("%s", temp[i]);
+  
+
+    //heheh
 
      /*Your code must meet the following requirements:
         (i) The comparison of two strings must be done by checking them one
@@ -67,11 +96,12 @@ int main()
             That is, write your own while/for loop to do this.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
+ 
 
 
 
   /* Output sorted list */
-
+  
   puts("\nIn alphabetical order, the strings are:");
   /* Write a for loop here to print all the strings. Feel free to use puts/printf
      etc. for printing each string.
