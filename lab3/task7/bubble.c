@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 
-#define NUM 3   /* number of strings */
+#define NUM 30   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
 int main()
@@ -15,8 +15,8 @@ int main()
       
   for(int i = 0; i < NUM ; i++)
 	{
-
-    fgets(Strings[i], LEN - 2, stdin);
+    
+    fgets(Strings[i], LEN -2, stdin);
 
   }
 
@@ -51,9 +51,9 @@ int main()
   {
     for (i = 0; i < NUM; i++)
     {
-      if (Strings[i][0] > Strings[i+1][0])
+      if (Strings[i][0] > Strings[i+1][0]) //Checks if First row first char is larger than 2nd row
       {
-        for (j = 0; j < NUM; j++)
+        for (j = 0; j < LEN; j++)
         {
            temp[0][j] = Strings[i][j]; 
            Strings[i][j] = Strings[i+1][j];
@@ -64,14 +64,14 @@ int main()
       }
       if (Strings[i][0] == Strings[i+1][0])
       {
-        for (j = 1; j < NUM; j++)
+        for (j = 1; j < LEN; j++) // Checks if the remaining characters
         {
-          if (Strings[i][j] == Strings[i+1][j])
+          if (Strings[i][j] == Strings[i+1][j]) //Skips if they're the same 
           {
             continue;
           }
 
-          else if (Strings[i][j] > Strings[i+1][j])
+          else if (Strings[i][j] > Strings[i+1][j]) // Swaps if they're different
           {
            temp[0][j] = Strings[i][j]; 
            Strings[i][j] = Strings[i+1][j];
@@ -111,10 +111,10 @@ int main()
      etc. for printing each string.
   */
 
-  for(int i = 0; i < LEN ; i++)
+  for(int i = 0; i < NUM ; i++) //WE HAD LEN INSTEAD OF NUM = SEGMENTATION FAULT
 	{
     printf("%s" , Strings[i]);
 	}
 
 }
-//FIX SEGMENTATION FAULT -> IF WE ENTER A STRING LARGER THAN NUM VALUE, IT GIVES US THAT, FIX IT
+//FIX SEGMENTATION FAULT -> IF WE ENTER A STRING LARGER THAN NUM VALUE, IT GIVES US THAT, FIX IT 
