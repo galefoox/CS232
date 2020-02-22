@@ -1,6 +1,6 @@
 /* Overwrites an inputted string with 232 is awesome! if there is room.
  * * Does nothing if there is not. */
-// Does this work
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
