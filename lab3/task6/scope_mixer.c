@@ -101,7 +101,7 @@ int main(void)
 		printf("block : m=%d\n", m);
 		//block: m = 5;
 
-	}
+	} //
 
 	printf("main : m=%d, n=%d\n\n\n", m, n);
 	//main : m=100, n = 7 //had a bit of trouble with this one but just have to look for which n is being referred to - had scroll through and find out which were variables
