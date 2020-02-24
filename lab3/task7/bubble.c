@@ -51,7 +51,7 @@ int main()
   {
     for (i = 0; i < NUM; i++)
     {
-      if (Strings[i][0] > Strings[i+1][0]) //Checks if First row first char is larger than 2nd row
+      if (Strings[i][0] > Strings[i+1][0]) 
       {
         for (j = 0; j < LEN; j++)
         {
@@ -73,9 +73,14 @@ int main()
 
           else if (Strings[i][j] > Strings[i+1][j]) // Swaps if they're different
           {
-           temp[0][j] = Strings[i][j]; 
-           Strings[i][j] = Strings[i+1][j];
-           Strings[i+1][j] = temp[0][j];
+             for (j = 0; j < LEN; j++)
+             {
+               temp[0][j] = Strings[i][j]; 
+               Strings[i][j] = Strings[i+1][j];
+               Strings[i+1][j] = temp[0][j];
+        
+        
+              }
           }
         }
       }
