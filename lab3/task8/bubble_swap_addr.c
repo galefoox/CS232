@@ -11,45 +11,59 @@ int main()
 {
   int NUM;
   int i;
+  int whileLoop = 0;
+  char * temp;
 
-  printf("%s\n", "Enter # of Strings");
+  puts("Enter # of Strings");
   scanf("%d", &NUM);
   printf("%d\n", NUM);
-  char ** Strings =  malloc (NUM * sizeof(char *));
-  for (i = 0; i < NUM; i++) // Fix this first, doesn't allow correct # of NUM
+  char ** Strings =(char **) malloc (LEN *sizeof(char **));
+  
+  for (i = 0; i < NUM; i++)
   {
-  Strings[i] = (char * ) malloc (sizeof(char *));
-  fgets(Strings[i], LEN -2, stdin);
+    Strings [i] = (char *) malloc (LEN *sizeof(char *));
+    scanf("%s", Strings[i]);
   }
   
   puts("\nHere are the strings in the order you entered:");
-  
+
     for(i = 0; i < NUM; i++)
     {
+    printf("%d\n", i);
 		printf("%s\n" , Strings[i]);
     }
-    
- // for(i = 0; i < NUM; i++)
+  
   //Bubble Sort
-  char * temp = malloc (sizeof(char *)); 
+  while (whileLoop < NUM)
+  {
+  temp = malloc (sizeof(char *)); 
   for (i = 0; i < NUM -1; i++)
   {
-
-    for (int j = 0; j < LEN; j++)
-    {
-      
-      if (Strings[i][j] < Strings[i+1][j]) // Fix this for not swapping
+    if (Strings[i][0] > Strings[i+1][0])
       {
-          
-          temp = Strings[i]; // The Swap
+        temp = Strings[i]; 
+        Strings[i] = Strings[i+1];
+        Strings[i+1] = temp;    
+      }
+    if (Strings[i][0] == Strings[i+1][0])
+    {
+    for (int j = 0; j < LEN; j++)
+      {
+        if (Strings[i][j] > Strings [i+1][j])
+        {
+          temp = Strings[i]; 
           Strings[i] = Strings[i+1];
           Strings[i+1] = temp;    
-      }
-      if (Strings[i][j] == Strings[i+1][j])
-      {
+        }
+        else if (Strings[i][j] == Strings[i+1][j])
+        {
           continue;
+        }
       }
     }
+  }
+  whileLoop++;
+  
   }
   
   puts("\nIn alphabetical order, the strings are:");
@@ -57,6 +71,8 @@ int main()
     {
     printf("%s\n" , Strings[i]);
     }
-    free(temp);
+
     free(Strings);
+    free(temp);
+  return (0);
 }
