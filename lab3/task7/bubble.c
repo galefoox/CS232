@@ -5,13 +5,29 @@
 #include <stdlib.h>
 
 
-#define NUM 30   /* number of strings */
+#define NUM 30  /* number of strings */
 #define LEN 1200  /* max length of each string */
+
+
+
+void swap (char * Strings1, char * Strings2)
+{
+    char temp[LEN -2 ];
+
+	for(int i = 0; i < LEN - 2; i++)
+    {
+
+	  temp[i] = Strings1[i];
+      Strings1[i] = Strings2[i];
+      Strings2[i] = temp[i];
+      
+    }
+}
+
 
 int main()
 {
   char Strings[NUM][LEN];
-  char temp[NUM][LEN];
       
   for(int i = 0; i < NUM ; i++)
 	{
@@ -43,58 +59,30 @@ int main()
 
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order*/
-  int i;
-  int j;
-  int l = 0;
 
-  while(l < NUM)
+  for (int i = 0; i < NUM; i++)
   {
-    for (i = 0; i < NUM; i++)
-    {
-      if (Strings[i][0] > Strings[i+1][0]) 
-      {
-        for (j = 0; j < LEN; j++)
-        {
-           temp[0][j] = Strings[i][j]; 
-           Strings[i][j] = Strings[i+1][j];
-           Strings[i+1][j] = temp[0][j];
-        
-        
-        }
-      }
-      if (Strings[i][0] == Strings[i+1][0])
-      {
-        for (j = 1; j < LEN; j++) // Checks if the remaining characters
-        {
-          if (Strings[i][j] == Strings[i+1][j]) //Skips if they're the same 
-          {
-            continue;
-          }
+  	  for (int j = 0; j < NUM -1 - i; j++)
+	  {
 
-          else if (Strings[i][j] > Strings[i+1][j]) // Swaps if they're different
-          {
-             for (j = 0; j < LEN; j++)
-             {
-               temp[0][j] = Strings[i][j]; 
-               Strings[i][j] = Strings[i+1][j];
-               Strings[i+1][j] = temp[0][j];
-        
-        
-              }
-          }
+		  for (int l = 0; l < LEN - 2; l++)
+		  {
+		  	  if (Strings[j][l] > Strings[j+1][l])
+			  {
+			  	  swap(Strings[j], Strings[j+1]);
+            break;
+			  }
+			  else if (Strings[j][l] == Strings[j+1][l])
+			  {
+			  	  continue;
+			  }
+        else
+        {
+          break;
         }
-      }
-    }
-    l++;
+		  }
+	  }
   }
-  
-  
-
- //printf("%s", temp[i]);
-  
-
-    //heheh
-
      /*Your code must meet the following requirements:
         (i) The comparison of two strings must be done by checking them one
             character at a time, without using any C string library functions.
@@ -121,5 +109,6 @@ int main()
     printf("%s" , Strings[i]);
 	}
 
+	return (0);
+
 }
-//FIX SEGMENTATION FAULT -> IF WE ENTER A STRING LARGER THAN NUM VALUE, IT GIVES US THAT, FIX IT 
