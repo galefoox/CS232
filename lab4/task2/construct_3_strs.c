@@ -49,5 +49,7 @@ int dump_all(node_t * x) {
     } else {
         return 0;
     }
-	
+	free(x);
+	free(y);
+	free(z);
 }
