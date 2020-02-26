@@ -56,8 +56,14 @@ int dump_all(node_t * x) {
     printf("%d -> %d\n", y->value, z->value);
     if(z->next != x) {
     	printf("failed");
+		free(x);
+		free(y);
+		free(z);
 	return -1;
     } else {
+		free(x);
+		free(y);
+		free(z);
         printf("%d -> %d\n", z->value, x->value);
         return 0;
     }
