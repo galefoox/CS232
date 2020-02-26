@@ -6,7 +6,8 @@ typedef struct node {
 } node_t;
 
 node_t * construct_3() {
-    //Allocate three pointers: 
+    
+	//
     //x for the first Node, and temporary pointers y and z for the other two Nodes.
 
     //Allocate three Node pointees and store references to them in the three pointers.
