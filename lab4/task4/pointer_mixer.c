@@ -1,4 +1,5 @@
 // pointer_mixer was created for examination of several aspects
+//Start/
 // of pointers:
 //   - sizeof() vs. strlen()
 //   - string init: pointer init. vs array init.
