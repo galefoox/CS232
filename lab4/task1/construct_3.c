@@ -39,7 +39,7 @@ node_t * construct_3() {
 
 }
 
-//You can ignore the following code for testing
+//You can ignore the following code for testing //
 int dump_all(node_t*);
 int main (int argc, char ** argv) {
 
