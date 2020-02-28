@@ -16,14 +16,14 @@ node_t * construct_3() {
 	z = (node_t*)malloc(sizeof(node_t));
 
 	
+	x->value = 1;
+	x->next = y;
+
 	y-> value = 2;
 	y->next = z;
 
 	z->value = 3;
 	z->next = x;
-
-	x->value = 1;
-	x->next = y;
 
 	return x;
 	
@@ -61,10 +61,10 @@ int dump_all(node_t * x) {
 		free(z);
 	return -1;
     } else {
+        printf("%d -> %d\n", z->value, x->value);
 		free(x);
 		free(y);
 		free(z);
-        printf("%d -> %d\n", z->value, x->value);
         return 0;
     }
 }
