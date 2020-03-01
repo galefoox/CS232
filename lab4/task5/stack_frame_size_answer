@@ -1,1 +1,1 @@
-The stack frame size is 48 bytes. The difference between the addresses is 48 bytes.
+The stack frame size is 48 bytes. The difference between the addresses is 48 bytes. In the screenshot, there shows a difference of 48 bytes between the addresses every single time. So the recursion method takes up 48 bytes.
