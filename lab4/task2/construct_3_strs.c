@@ -7,22 +7,20 @@ typedef struct node {
 
 node_t * construct_3_strs() {
 
+
     node_t *x,*y,*z;
     x = (node_t *) malloc (sizeof(node_t));
     y = (node_t *) malloc (sizeof(node_t));
     z = (node_t *) malloc (sizeof(node_t));
-    
-    y -> value = (char *) malloc (sizeof(char));    
-	y-> value = "is";
-	y->next = z;
 
-    z -> value = (char *) malloc (sizeof(char));    
-	z->value = "awesome";
-	z->next = x;
-
-    x -> value = (char *) malloc (sizeof(char));    
-	x->value = "CS232";
+    x->value = "CS232";
 	x->next = y;
+    
+    y-> value = "is";
+	y->next = z;  
+	
+    z->value = "awesome";
+	z->next = x;
 
 	return x;
 	
@@ -44,11 +42,9 @@ int dump_all(node_t * x) {
     printf(" %s\n", z->value);
     if(z->next != x) {
     	printf("failed");
-		free(x);
-		free(y);
-		free(z);
 	return -1;
     } else {
+
 		free(x);
 		free(y);
 		free(z);
