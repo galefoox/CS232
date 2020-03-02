@@ -86,7 +86,6 @@ char mystring_get(mystring_t *s, size_t loc)
 	}
 	else
 	{
-		perror("");	//YOUR CODE HERE
 		return 0;
 	}
 }
