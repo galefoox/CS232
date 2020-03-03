@@ -147,7 +147,7 @@ void byte_ordering() {
   //0x
   for(i=0;i<4;i++){
     printf("%02x",p[i]); //could also do *(p+i)
-    //
+    //efbeadde
   }
   printf("\n");
 }
@@ -193,7 +193,9 @@ darray ---> | --+-'        '---'---'---'---'
     // adarray equals to &darray[0] which equals to &(&array[0])
     // a double array is a double pointer
     printf("*(*(darray+2)+2) = %d\n", *(*(darray+2)+2));
+    //10
     printf("     daray[2][2] = %d\n", darray[2][2]);
+    //10
 }
 // ----------------------------------------------------------------------------
 void string_double_array_pointer_array() {
@@ -204,7 +206,10 @@ void string_double_array_pointer_array() {
 //------why is char *str a constant and stored in code but char* Strings[]down there is on stack?????
 //-------I know stack is higher than heap (correct my if im wrong) but then how do you know which address is higher
     printf("str1:%p\n",str1);
-    printf("str2:%p\n",str2); //which is at the higer address? why?
+    //some address
+    printf("str2:%p\n",str2); 
+    // some address
+    //which is at the higer address? why?
                               //check the memory layout of your process 
                               //what lays at the bottom?
     //this is an array of strings, each string is a char *	
@@ -218,6 +223,10 @@ void string_double_array_pointer_array() {
     for(i=0;i<4;i++){
       printf("strings[%d]: '%s' %p\n",i,strings[i],strings[i]);
       //are they in higher address or lower address? why?
+      //Go Pace address
+      //Beat Cuny address
+      //Crash Suny address
+      //EnjoyCS232 address
   }
 }
 // ----------------------------------------------------------------------------
@@ -237,7 +246,9 @@ void string_equal() {
     }
     printf("\n");
     printf("s1: %p == s2: %p? \n", s1, s2); //not equal
+    //the print out different addresses
     printf("s3: %p == s4: %p? \n", s3, s4); //equal
+    //they are equal and print out the same address
 }
 //Now do you understand why we need string lib, like strcmp?
 // ----------------------------------------------------------------------------
@@ -315,7 +326,9 @@ void readonly_vs_stack() {
 
   str1[0] = 't';
   printf("str1: %s \n",str1);
+  //this is a locus tree
   str2[0] = 't';
   printf("str2: %s \n",str2); //--cant change a constant ever? or is there a way to?
+  //cant change constant so error
 }
 
