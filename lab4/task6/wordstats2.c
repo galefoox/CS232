@@ -6,7 +6,7 @@
 
 
 int main () {
-
+ 
   int len, i;
   char buf[MAX_BUF];
 
