@@ -4,11 +4,12 @@
 typedef struct snode node_t;
 
 node_t * setup() {
-    node_t * head ;//head declared for you
+    node_t * head ;
+    //TODO:head declared for you
     //Allocate three more pointers
     //head for the first Node, and temporary pointers node1, node2 and node3
     //Allocate three node pointees and store references to them in the three pointers
-    //Dereference each pointer to store the appropriate number into the value field in its pointee.
+    //Dereference each pointer to store the appropriate number and string into the length and str fields in its pointee.
     //Dereference each pointer to access the .next field in its pointee, 
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
     

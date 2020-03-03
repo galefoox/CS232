@@ -19,7 +19,7 @@ int main(void)   {
     slist_add_back(song_list, "Watch Me");
     slist_add_front(song_list, "Uptown Funk");
     slist_add_back(song_list, "Earned It");
-
+    slist_delete(song_list, "Sugar");
     printf("Here are the top %d songs:\n", slist_length(song_list));
 
     printf("Content of the list as follows.\n");
