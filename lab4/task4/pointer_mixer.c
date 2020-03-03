@@ -329,6 +329,6 @@ void readonly_vs_stack() {
   //this is a locus tree
   str2[0] = 't';
   printf("str2: %s \n",str2); //--cant change a constant ever? or is there a way to?
-  //cant change constant so error
+  //cant change constant so error 
 }
 
