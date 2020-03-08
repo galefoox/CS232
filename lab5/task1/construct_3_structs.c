@@ -4,7 +4,8 @@
 typedef struct snode node_t;
 
 node_t* setup() {
-    node_t* head ;//head declared for you
+    node_t* head;
+    //head declared for you
 
 
 
@@ -42,24 +43,18 @@ node_t* setup() {
    return head;
 }
 
-<<<<<<< HEAD
 void teardown(node_t* head) {
 
     node_t* node1 = head->next;
     node_t* node2 = node1->next;
-    node_t* node3 = node2->next;
+    //node_t* node3 = node2->next;
 
-    free(node3);
+
     free(node2);
     free(node1);
+    
+    free(head);
    
-   
-=======
-void teardown(/*what parameter?*/) {
-    //TODO: free all dynamic memory you requested.
-    //Please complete the prototype of teardown.
-    //You are not allowed to use globals
->>>>>>> 0eae2f9af14cc2f11d67a7d0feba0acca365fdc8
 }
 
 //You can ignore the following code for testing
@@ -67,11 +62,9 @@ void dump_all(node_t*);
 int main (int argc, char ** argv) {
     node_t * head = setup();
     dump_all(head);
-<<<<<<< HEAD
     teardown(head);
-=======
-    teardown(/*what argument?*/);
->>>>>>> 0eae2f9af14cc2f11d67a7d0feba0acca365fdc8
+
+
     return 0;
 }
 
@@ -84,3 +77,4 @@ void dump_all(node_t * head) {
     }
     printf("\ndone\n ");
 }
+
