@@ -5,7 +5,11 @@ typedef struct snode node_t;
 
 node_t * setup() {
     node_t* head;
+<<<<<<< HEAD
     
+=======
+    //
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
     node_t* node1;
     node_t* node2;
     node_t* node3;
@@ -38,6 +42,7 @@ void teardown(node_t* head) {
     
    node_t* node_b1 = head->next;
     node_t* node1 = node_b1->next;
+<<<<<<< HEAD
    //node_t* node2 = node1->next;
     //node_t* node3 = node2->next;
 
@@ -45,6 +50,18 @@ void teardown(node_t* head) {
     free(node1);
     free(node_b1);
     free(head);
+=======
+ // node_t* node2 = node1 -> next;
+   
+    //node_t* node3 = node2->next;
+
+    
+   // free(node2);
+    free(node1);
+    free(node_b1);
+    free(head);
+    
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 
 }
 
@@ -64,6 +81,7 @@ void delete_node_at(node_t ** head, int idx) {
     //TODO: implement delete a node based on index
 	//deletes a node at index idx, which ranges from zero to the length of the list - 1.
 
+<<<<<<< HEAD
         if (idx == 0)
         {
             node_t * temp = *head;
@@ -96,14 +114,53 @@ void delete_node_key(node_t **head, char * key) {
  }
    
    
+=======
+        node_t* temp;
+        if (idx == 0)
+        {
+            temp = *head;
+            (*head) = (*head) -> next;
+            
+        }
+            free(temp);
+        
+
 }
+void delete_node_key(node_t **head, char * key) {
+
+    node_t * pred = *head;
+    node_t* temp = NULL;
+
+    while(pred->next != NULL)
+    {
+        if(strcmp(pred->next->str, key) == 0)
+        {
+            temp = pred->next;
+            pred->next = pred->next->next;
+            free(temp);
+
+        }
+        else 
+        {
+            pred = pred->next;
+
+        }
+
+    }
+
+
+
+
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
+}
+          
 //You can ignore the following code for testing
 void dump_all(node_t*);
 int main (int argc, char ** argv) {
     node_t * head = setup();
     add(&head, "hi", 2);
-    delete_node_key(&head, "prof");
-    delete_node_at(&head, 0);
+   delete_node_key(&head, "prof");
+  delete_node_at(&head, 0);
     dump_all(head);
     teardown(head);
     return 0;
@@ -118,3 +175,4 @@ void dump_all(node_t * head) {
     }
     printf("\ndone\n ");
 }
+//

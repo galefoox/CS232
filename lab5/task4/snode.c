@@ -3,9 +3,12 @@
 #include <string.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
 /*#ifndef _snode_H_
 #define _snode_H_*/
 
+=======
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 snode_t *snode_create(char *s) 
 {   
     
@@ -14,6 +17,7 @@ snode_t *snode_create(char *s)
     space -> str = (char *) malloc (strlen(s) * sizeof(char) + 1);
     strcpy(space -> str, s);
     space -> next = NULL;//TODO: implement snode_create, change the prototype to
+<<<<<<< HEAD
  //match with header file
  //return node;
   return space;
@@ -90,8 +94,17 @@ struct snode* snode_create(char *s)
 
 }
 void snode_destroy(struct snode * n) 
+=======
+ //match with header file
+ //return node;
+  return space;
+}
+void snode_destroy(snode_t * s) 
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 {
+snode_t* snode = s;
 
+<<<<<<< HEAD
     node_t* snode = n;
 
     free(snode->str);
@@ -101,3 +114,10 @@ void snode_destroy(struct snode * n)
  
 }*/
  
+=======
+ free(snode->str);
+ free(s);
+ //TODO: implement snode_destroy
+ 
+}
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e

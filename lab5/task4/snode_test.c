@@ -41,6 +41,11 @@ int main(int argc, char *argv[]) {
     // TODO: add code to move p to point to next node
     // until you add this line, this program will have an infinite loop.
   }
+  snode_destroy(n3);
+  snode_destroy(n2);
+  snode_destroy(n1);
+  
+  
 
   return 0;
 }

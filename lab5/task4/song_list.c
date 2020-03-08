@@ -20,8 +20,12 @@ int main(void)   {
     slist_add_front(song_list, "Uptown Funk");
     slist_add_back(song_list, "Earned It");
     slist_delete(song_list, "Sugar");
+<<<<<<< HEAD
   
     printf("Here are the top %d songs:\n", slist_length(song_list));
+=======
+   printf("Here are the top %d songs:\n", slist_length(song_list));
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 
     printf("Content of the list as follows.\n");
 
@@ -37,9 +41,13 @@ int main(void)   {
     printf("Search 'My Heart Will Go On', node address %p\n", node);  // should be NULL */
     
     slist_destroy(song_list);
+<<<<<<< HEAD
 
     node = NULL;
     free(node);
+=======
+    
+>>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
     return 0;
 
 
