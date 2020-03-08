@@ -20,36 +20,21 @@ int main(void)   {
     slist_add_front(song_list, "Uptown Funk");
     slist_add_back(song_list, "Earned It");
     slist_delete(song_list, "Sugar");
-<<<<<<< HEAD
-  
-    printf("Here are the top %d songs:\n", slist_length(song_list));
-=======
    printf("Here are the top %d songs:\n", slist_length(song_list));
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 
     printf("Content of the list as follows.\n");
-
     slist_traverse(song_list);
 
-   /* node = slist_find(song_list, "Uptown Funk");
+    node = slist_find(song_list, "Uptown Funk");
     printf("Search 'Uptown Funk', node address %p\n", node);
     node = slist_find(song_list, "Earned It");
     printf("Search 'Earned It', node address %p\n", node);
     node = slist_find(song_list, "Sugar");
     printf("Search 'Sugar', node address %p\n", node); 
     node = slist_find(song_list, "My Heart Will Go On");
-    printf("Search 'My Heart Will Go On', node address %p\n", node);  // should be NULL */
+    printf("Search 'My Heart Will Go On', node address %p\n", node);  // should be NULL
     
     slist_destroy(song_list);
-<<<<<<< HEAD
-
-    node = NULL;
-    free(node);
-=======
     
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
     return 0;
-
-
-    
 }

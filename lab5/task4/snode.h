@@ -5,10 +5,6 @@
 #ifndef _snode_H_
 #define _snode_H_
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 typedef struct snode {
   //TODO: change str to dynamic allcoation
   char * str;
@@ -21,9 +17,5 @@ typedef struct snode {
 snode_t *snode_create(char *s) ; 
 void snode_destroy(snode_t * s) ;
 
-<<<<<<< HEAD
-#endif /* _snode_H_ */
-=======
  
  #endif
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e

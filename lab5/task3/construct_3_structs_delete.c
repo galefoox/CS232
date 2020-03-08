@@ -5,11 +5,7 @@ typedef struct snode node_t;
 
 node_t * setup() {
     node_t* head;
-<<<<<<< HEAD
-    
-=======
     //
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
     node_t* node1;
     node_t* node2;
     node_t* node3;
@@ -42,15 +38,6 @@ void teardown(node_t* head) {
     
    node_t* node_b1 = head->next;
     node_t* node1 = node_b1->next;
-<<<<<<< HEAD
-   //node_t* node2 = node1->next;
-    //node_t* node3 = node2->next;
-
-    //free(node2);
-    free(node1);
-    free(node_b1);
-    free(head);
-=======
  // node_t* node2 = node1 -> next;
    
     //node_t* node3 = node2->next;
@@ -61,7 +48,6 @@ void teardown(node_t* head) {
     free(node_b1);
     free(head);
     
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 
 }
 
@@ -81,40 +67,6 @@ void delete_node_at(node_t ** head, int idx) {
     //TODO: implement delete a node based on index
 	//deletes a node at index idx, which ranges from zero to the length of the list - 1.
 
-<<<<<<< HEAD
-        if (idx == 0)
-        {
-            node_t * temp = *head;
-            (*head) = (*head) -> next;
-            free(temp);
-        }
- 
-
-} 
-void delete_node_key(node_t **head, char * key) {
-    
-    node_t * pred = *head;
-
-    while((strcmp(pred->next->str, key) != 0))
-    {
-        pred = pred->next;
-  
-        
-         if (strcmp(pred->next->str, key) == 0)//
-         {
-                printf("if statement");
-                node_t * trash = pred->next;
-                pred->next = pred->next->next;
-      
-                //free(trash);
-                //free(pred);
-   }
-       
-  
- }
-   
-   
-=======
         node_t* temp;
         if (idx == 0)
         {
@@ -151,7 +103,6 @@ void delete_node_key(node_t **head, char * key) {
 
 
 
->>>>>>> 3d562886ea51dc99546bf17b02a2b7f2d106a55e
 }
           
 //You can ignore the following code for testing
