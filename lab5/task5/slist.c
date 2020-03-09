@@ -5,6 +5,18 @@
 #include <stdint.h>
 #include "slist.h"
 
+typedef struct slist {
+  struct snode *front; // front node
+  struct snode *back;  // back node
+}slist_t;
+
+typedef struct snode {
+  //TODO: change str to dynamic allcoation
+  void * data;
+  struct snode *next;
+  
+}snode_t;
+
 
 /**
  * Allocates new slist dynamically.

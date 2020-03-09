@@ -3,6 +3,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct snode {
+  //TODO: change str to dynamic allcoation
+  void * data;
+  struct snode *next;
+  
+}snode_t;
+
 snode_t *snode_create(char *s) 
 {   
     
