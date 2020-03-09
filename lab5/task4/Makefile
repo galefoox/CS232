@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -std=c11 
+CFLAGS=-Wall -std=c11
  
 
 song_list: snode.c snode.h slist.c song_list.c slist.h
