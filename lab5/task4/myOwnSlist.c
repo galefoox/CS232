@@ -3,13 +3,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "slist.h"
+
 
 typedef struct slist {
   struct snode *front; // front node
   struct snode *back;  // back node
-  
 }slist_t;
+//
 
 typedef struct snode {
   //TODO: change str to dynamic allcoation
@@ -17,7 +17,6 @@ typedef struct snode {
   struct snode *next;
 
 }snode_t;
-
 /**
  * Allocates new slist dynamically.
  * 
@@ -25,8 +24,7 @@ typedef struct snode {
  */
 slist_t *slist_create()
 {
-    slist_t * newlist = (slist_t*) calloc (1,sizeof(slist_t));
-  
+    slist_t * newlist = (slist_t*) calloc (1 , sizeof(slist_t));
     return newlist;
 
 }
@@ -37,10 +35,10 @@ slist_t *slist_create()
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-snode_t* slist_add_back(slist_t *l, char *str)
-{
 
-    snode_t * newNode = (snode_t*) calloc (1,sizeof(snode_t));
+snode_t* slist_add_back(slist_t *l, char *str) //type snode_t*
+{
+    snode_t * newNode = (snode_t*) calloc (1 , sizeof(snode_t));
     newNode -> str = (char *) malloc (strlen(str) * sizeof(char) + 1);
     strcpy(newNode -> str , str);
 
@@ -48,7 +46,7 @@ snode_t* slist_add_back(slist_t *l, char *str)
    {
       l->front = newNode;
       l->back = newNode;
-
+       
    }
 
    if(l->front != NULL)
@@ -59,7 +57,7 @@ snode_t* slist_add_back(slist_t *l, char *str)
 
    return newNode;
 
-
+    
 }
 
 
@@ -72,14 +70,16 @@ snode_t* slist_add_back(slist_t *l, char *str)
  */
 snode_t* slist_add_front(slist_t *l, char *str)
 {
-  snode_t * newNode = (snode_t *) malloc (sizeof(snode_t));
-  newNode -> str = (char *) malloc (strlen(str) * sizeof(char) + 1);
-  strcpy(newNode -> str, str);
-  newNode -> next = l -> front;
-  l -> front = newNode;
+    snode_t * newNode = (snode_t *) malloc (sizeof(snode_t));
+    newNode -> str = (char *) malloc (strlen(str) * sizeof(char) + 1);
+    strcpy(newNode -> str, str);
+    newNode -> next = l -> front;
+    l -> front = newNode;
 
   return newNode;
+
 }
+
 /**
  * Returns the first snode with the given string.
  *  
@@ -117,18 +117,30 @@ snode_t* slist_find(slist_t *l, char *str)
  */
 void slist_destroy(slist_t *l)
 {
-  snode_t * now = l->front;
-  snode_t * listdestroy;
-  while (now != NULL)
-  {
-    listdestroy = now -> next;
-    free (now->str);
-    free(now);
-    now = listdestroy;
-  }
-  free(l);
+    snode_t* current = l->front; 
+    snode_t* nextNode; 
+   
+    while (current != NULL)  
+    { 
+        nextNode = current->next; 
+        free(current->str);
+        free(current); 
+        current = nextNode; 
+    } 
+    
+    free(l);
+ 
 
 }
+
+
+
+
+
+
+
+
+
 
 /**
  * Traverse the list and print the content of each node.
@@ -136,13 +148,13 @@ void slist_destroy(slist_t *l)
  * @param l pointer to the list (non-NULL)
  */
 void slist_traverse(slist_t *l){
-  snode_t * traverse = l->front;
-  while (traverse != NULL )
-    {
 
-        printf("%s\n", traverse->str);
-       
-        traverse = traverse -> next;
+    snode_t* pnode = l->front;
+  
+  while (pnode != NULL)
+    {
+        printf("%s\n", pnode->str);
+        pnode = pnode -> next;
     }
 
 
@@ -156,15 +168,34 @@ void slist_traverse(slist_t *l){
  */
 uint32_t slist_length(slist_t *l)
 {
-  int count = 1;
-  snode_t * pcount = l->front;
-  while (pcount != l->back)
+    snode_t* temp = l->front;
+    
+    int count = 0;
+    int* ptrCount = &count;
+    while (temp != NULL)
     {
-      count++;
-      pcount = pcount -> next;
+        count++;
+        temp = temp->next;
     }
-  return count;
+
+    return *ptrCount;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Deletes the first snode with the given string.
@@ -173,7 +204,7 @@ uint32_t slist_length(slist_t *l)
  * @parap str pointer to a string
  * @return struct snode* or NULL if no match
  */
-void slist_delete(slist_t *l, char * str) //change return type
+void slist_delete(slist_t *l, char *str) //change return type
 {
     snode_t * pred = l->front;
     snode_t* temp = NULL;
@@ -197,4 +228,8 @@ void slist_delete(slist_t *l, char * str) //change return type
         }
 
     }
+
+    
+  
+
 }

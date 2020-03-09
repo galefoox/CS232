@@ -36,10 +36,7 @@
 #include <stdint.h>
 #include "snode.h"
 
-typedef struct slist {
-  struct snode *front; // front node
-  struct snode *back;  // back node
-}slist_t;
+typedef struct slist slist_t;
 
 /**
  * Allocates new slist dynamically.

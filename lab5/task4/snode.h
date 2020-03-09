@@ -5,12 +5,7 @@
 #ifndef _snode_H_
 #define _snode_H_
 
-typedef struct snode {
-  //TODO: change str to dynamic allcoation
-  char * str;
-
-  struct snode *next;
-}snode_t;
+typedef struct snode snode_t;
 
 //TODO: change prototypes of functions to remove
 //length
