@@ -201,20 +201,23 @@ void slist_delete(slist_t *l, char * str) //change return type
 
 
 
-struct snode * slist_get_front(struct slist *l)
+snode_t * slist_get_front(slist_t *l)
 {
   snode_t * front = l->front;
   return front;
 }
 
-struct snode * slist_get_back(struct slist *l)
+snode_t * slist_get_back(slist_t *l)
 {
   snode_t * back = l->back;
   return back;
 }
 
 
-struct snode * snode_get_str(struct slist * l)
+snode_t * snode_get_str(snode_t * l)
 {
-  snode_t * getStr =  
+  snode_t * getStr = l;
+  getStr -> str = l -> str;
+  return getStr -> str;
 }
+

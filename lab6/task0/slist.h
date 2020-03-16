@@ -107,4 +107,5 @@ struct snode * slist_get_back(struct slist *l);
 
 struct snode * snode_get_str(struct slist * l);
 
+
 #endif /* _slist_H_ */
