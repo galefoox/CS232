@@ -17,7 +17,7 @@ typedef struct snode {
   struct snode *next;
 
 }snode_t;
-
+//
 /**
  * Allocates new slist dynamically.
  * 
