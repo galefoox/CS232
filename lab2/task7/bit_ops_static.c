@@ -22,10 +22,10 @@ void get_bits(unsigned x,
                                               //We constantly would try knew things and bounce off eachothers thoughts
                                               //until we came up with this final product
 
-      bit = (x >> start+i) & 1;
+      bit = (x >> (start+i)) & 1;
 
       a[i] = bit;
-
+//
       /*if(x<<start+i == 1)
       {
         a[i] = 1;

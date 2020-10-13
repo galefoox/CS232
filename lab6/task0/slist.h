@@ -29,7 +29,7 @@
  *   Add  slist_delete();
  * Date: 2019-12-16
 */
-
+//
 #ifndef _slist_H_
 #define _slist_H_
 
@@ -105,6 +105,8 @@ struct snode* slist_get_front(struct slist* l);
 
 struct snode* slist_get_back(struct slist* l);
 
+char * snode_get_str(struct snode* s);
 
+struct snode* snode_get_next(struct snode* s);
 
 #endif /* _slist_H_ */

@@ -19,7 +19,7 @@ typedef struct slist {
 
 }snode_t;*/
 //
-/**
+/*
  * Allocates new slist dynamically.
  * 
  * @return pointer to the list
@@ -43,7 +43,6 @@ snode_t* slist_add_back(slist_t *l, char *str)
 
     snode_t * newNode = (snode_t*) calloc (1,sizeof(slist_t));
     snode_set_str(newNode, str);
-
    if(l->back == NULL)
    {
       l->front = newNode;
@@ -65,7 +64,6 @@ snode_t* slist_add_back(slist_t *l, char *str)
   l->size++;
 
    return newNode;
-
 
 
 }
@@ -111,7 +109,6 @@ snode_t* slist_add_front(slist_t *l, char *str)
     }
   }
   l -> front = newNode;
-
   l->size++;
 
   return l->front;
@@ -251,7 +248,6 @@ void slist_delete(slist_t *l, char * str) //change return type
       
       l->back = l->front;
     }
-
     l->size--;
 
 }

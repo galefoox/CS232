@@ -8,7 +8,7 @@
 typedef struct snode snode_t;
 
 //TODO: change prototypes of functions to remove
-//length
+//lengt
 snode_t *snode_create(char *s) ; 
 
 void snode_destroy(snode_t * s) ;
@@ -21,3 +21,4 @@ void snode_set_str(snode_t* snode , char* string);
 
  
  #endif
+ 

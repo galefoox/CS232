@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 
   while(p != NULL)
   {
-    printf("%s" , snode_get_str(p));
+    printf("%s\n" , snode_get_str(p));
     p = snode_get_next(p);
     //p = p->next;
   }

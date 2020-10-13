@@ -29,7 +29,7 @@
  *   Add  slist_delete();
  * Date: 2019-12-16
 */
-
+//
 #ifndef _slist_H_
 #define _slist_H_
 
@@ -52,7 +52,7 @@ struct slist *slist_create();
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-struct snode* slist_add_back(struct slist *l, void *str);
+struct snode* slist_add_back(struct slist *l, char *str);
 
 /** 
  * Inserts new node in slist before the first node.
@@ -104,6 +104,8 @@ void slist_delete(struct slist* l, char* str);
 struct snode* slist_get_front(struct slist* l);
 
 struct snode* slist_get_back(struct slist* l);
+
+struct snode* slist_find_at(struct slist* l, int index);
 
 
 

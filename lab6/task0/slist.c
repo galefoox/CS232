@@ -10,7 +10,7 @@ typedef struct slist {
   struct snode *back;  // back node
   
 }slist_t;
-
+//
 /*typedef struct snode {
   //TODO: change str to dynamic allcoation
   char * str;
@@ -146,7 +146,6 @@ void slist_destroy(slist_t *l)
     free(now);
     now = listdestroy;
   } 
-  
   free(l);
   
 
@@ -200,18 +199,16 @@ uint32_t slist_length(slist_t *l)
 void slist_delete(slist_t *l, char * str) //change return type
 {
     snode_t * pred = l->front;
-    snode_t* temp = l->front;
-
-  
+    snode_t* temp = NULL;
+    
     while(snode_get_next(pred) != NULL)
     { 
         if(strcmp(snode_get_str(snode_get_next(pred)), str) == 0)
         {
-            temp = snode_get_next(pred); 
+            temp = snode_get_next(pred); // Temp is now Sugar
             snode_set_next(pred, snode_get_next(temp));
-            
-            snode_destroy(temp);
-            
+            free(snode_get_str(temp)); // Freeing Sugar String
+            free(temp); // If I dont free str, then it goes to Sugar and unlinks the rest.
           
         }
         else 
@@ -220,20 +217,20 @@ void slist_delete(slist_t *l, char * str) //change return type
 
         }
         l->back = pred;
+      
 
     }
-
-
-  if (strcmp(snode_get_str(l->front), str) == 0)
+        if (strcmp(snode_get_str(l->front), str) == 0)
     {
       snode_t * first = l->front;
-      l->front = snode_get_next(first); //after a is gone, and only c is left, l->front then becomes NULL
+      //snode_t * second = NULL;
+     // second = first;
+      l->front = snode_get_next(l->front);
       free(snode_get_str(first));
       free(first);
       
       l->back = l->front;
     }
-
 }
 
 
